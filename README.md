@@ -7,7 +7,7 @@
 	[*] Date:                09/04/2018
 	[*] Exploit Author:      Fernandez Ezequiel ( @capitan_alfa )
 	
-![DVR](screenshot/login.png) 
+![DVR_wall](screenshot/videoWall.png) 
 
 ### Exploit:
 
@@ -32,16 +32,16 @@
 ![DVR_dorks_3](screenshot/cow/shodan_2.png)
 
 ## Possible Banners frontend (web):
-![DVR_login_1](screenshot/loginFron/login_1.png)
-![DVR_login_2](screenshot/loginFron/login_2.png)
-![DVR_login_3](screenshot/loginFron/login_3.png)
-![DVR_login_4](screenshot/loginFron/login_4.png)
-![DVR_login_5](screenshot/loginFron/login_5.png)
-![DVR_login_6](screenshot/loginFron/login_6.png)
-![DVR_login_7](screenshot/loginFron/login_7.png)
-![DVR_login_8](screenshot/loginFron/login_9.png)
-![DVR_login_9](screenshot/loginFron/login_9.png)
-![DVR_login_10](screenshot/loginFron/login_10.png)
+![DVR_login_1](screenshot/loginFront/login_1.png)
+![DVR_login_2](screenshot/loginFront/login_2.png)
+![DVR_login_3](screenshot/loginFront/login_3.png)
+![DVR_login_4](screenshot/loginFront/login_4.png)
+![DVR_login_5](screenshot/loginFront/login_5.png)
+![DVR_login_6](screenshot/loginFront/login_6.png)
+![DVR_login_7](screenshot/loginFront/login_7.png)
+![DVR_login_8](screenshot/loginFront/login_9.png)
+![DVR_login_9](screenshot/loginFront/login_9.png)
+![DVR_login_10](screenshot/loginFront/login_10.png)
 
 ## Indoor:
 ![DVR_indoor_1](screenshot/indoor/in_x.png)
@@ -75,7 +75,7 @@
 	[+] Demo: python getDVR_Credentials.py --host 192.168.1.101 -p 81
 
 
-## pocs tool:
+## [pocs] (Output) :
 ![DVR_poc_4](screenshot/toolOutput/poc_4.png)
 ![DVR_poc_3](screenshot/toolOutput/poc_3.png)
 ![DVR_poc_2](screenshot/toolOutput/poc_2.png)

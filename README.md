@@ -7,7 +7,7 @@
 	[*] Date:                09/04/2018
 	[*] Exploit Author:      Fernandez Ezequiel ( @capitan_alfa )
 	
-![DVR_wall](screenshot/videoWall.png) 
+![DVR_wall](screenshot/videoWall.jpg) 
 
 ### Exploit:
 
@@ -40,7 +40,6 @@
 ![DVR_login_6](screenshot/loginFront/login_6.png)
 ![DVR_login_7](screenshot/loginFront/login_7.png)
 ![DVR_login_8](screenshot/loginFront/login_9.png)
-![DVR_login_9](screenshot/loginFront/login_9.png)
 ![DVR_login_10](screenshot/loginFront/login_10.png)
 
 ## Indoor:

